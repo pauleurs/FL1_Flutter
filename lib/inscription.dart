@@ -29,6 +29,52 @@ class RegisterPageState extends State<RegisterPage> {
             ),
           ),
           Container(
+            padding: const EdgeInsets.fromLTRB(20, 50, 20, 0),
+            child: TextFormField(
+              decoration: const InputDecoration(
+                icon: Icon(Icons.mail),
+                hintText: 'Adresse mail',
+              ),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Champs requis';
+                }
+                return null;
+              },
+            ),
+          ),
+          Container(
+            padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+            child: TextFormField(
+              decoration: const InputDecoration(
+                icon: Icon(Icons.mail),
+                hintText: 'Confirmation adresse mail',
+              ),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Champs requis';
+                }
+                return null;
+              },
+            ),
+          ),
+          Container(
+            padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+            child: TextFormField(
+              obscureText: true,
+              decoration: const InputDecoration(
+                hintText: 'Mot de passe',
+                icon: Icon(Icons.lock),
+              ),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Champs requis';
+                }
+                return null;
+              },
+            ),
+          ),
+          Container(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
