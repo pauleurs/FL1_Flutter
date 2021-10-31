@@ -1,6 +1,3 @@
-import 'dart:async';
-import 'dart:io';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
@@ -14,22 +11,15 @@ class LoginPage extends StatefulWidget {
 }
 
 class LoginPageState extends State<LoginPage> {
+  @override
   initState() {
     super.initState();
-    read();
-  }
-
-  Future<void> read() async {
-    print(kIsWeb);
-    File('file.txt').readAsString().then((String contents) {
-      print(contents);
-    });
   }
 
   final _formKey = GlobalKey<FormState>();
   bool _isOk = true;
-  var mail;
-  var passworld;
+  var mail = '';
+  var passworld = '';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,21 +71,21 @@ class LoginPageState extends State<LoginPage> {
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.fromLTRB(0, 15, 30, 20),
+                  padding: const EdgeInsets.fromLTRB(0, 15, 30, 20),
                   alignment: Alignment.centerRight,
                   child: TextButton(
                     onPressed: () {
                       Navigator.pushReplacementNamed(context, '/register');
                     },
                     style: TextButton.styleFrom(
-                      primary: Color(0xff9B3F1B),
+                      primary: const Color(0xff9B3F1B),
                     ),
-                    child: Text('Inscription'),
+                    child: const Text('Inscription'),
                   ),
                 ),
                 Container(
                   alignment: Alignment.center,
-                  child: this._isOk
+                  child: _isOk
                       ? null
                       : const Text(
                           "Email ou mot de passe incorect",
@@ -113,11 +103,11 @@ class LoginPageState extends State<LoginPage> {
                 ),
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
-                    if (mail == "a" && passworld == "a") {
+                    if (mail == "test@test.fr" && passworld == "test") {
                       Navigator.pushReplacementNamed(context, '/second');
                     } else {
                       setState(() {
-                        this._isOk = false;
+                        _isOk = false;
                       });
                     }
                   }

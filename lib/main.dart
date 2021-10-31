@@ -3,10 +3,10 @@ import 'login.dart';
 import 'teammates.dart';
 import 'inscription.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
-  MyApp({Key? key}) : super(key: key);
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,9 +14,9 @@ class MyApp extends StatelessWidget {
       title: "Kaamelott",
       initialRoute: '/',
       routes: {
-        '/': (context) => LoginPage(),
-        '/second': (context) => TeammatesModel(),
-        '/register': (context) => RegisterPage(),
+        '/': (context) => const LoginPage(),
+        '/second': (context) => const TeammatesModel(),
+        '/register': (context) => const RegisterPage(),
       },
     );
   }

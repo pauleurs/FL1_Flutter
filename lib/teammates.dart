@@ -15,13 +15,13 @@ Future<Map<String, dynamic>> jsonToMap(String path) async {
 }
 
 class TeammatesModel extends StatefulWidget {
-  TeammatesModel({Key? key}) : super(key: key);
+  const TeammatesModel({Key? key}) : super(key: key);
   @override
   TeammatesModelState createState() => TeammatesModelState();
 }
 
 class TeammatesModelState extends State<TeammatesModel> {
-  var _isError = [-1];
+  final _isError = [-1];
   bool _check = false;
 
   dynamic res = <String, dynamic>{};
@@ -45,7 +45,7 @@ class TeammatesModelState extends State<TeammatesModel> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Casting'),
-        backgroundColor: Color(0xff6A290F),
+        backgroundColor: const Color(0xff6A290F),
       ),
       body: _check
           ? ListView.builder(
@@ -60,7 +60,7 @@ class TeammatesModelState extends State<TeammatesModel> {
                         ? Text(
                             data[index]["firstname"][0] +
                                 data[index]["lastname"][0],
-                            style: TextStyle(color: Colors.black),
+                            style: const TextStyle(color: Colors.black),
                           )
                         : null,
                     onBackgroundImageError: (_, __) {
@@ -71,7 +71,7 @@ class TeammatesModelState extends State<TeammatesModel> {
                   ),
                   title: Text(data[index]["firstname"]),
                   subtitle: Text(data[index]["lastname"]),
-                  trailing: Icon(Icons.chevron_right),
+                  trailing: const Icon(Icons.chevron_right),
                   onTap: () async {
                     if (data[index]["url_link"] != null) {
                       await launch(data[index]["url_link"],
@@ -83,7 +83,7 @@ class TeammatesModelState extends State<TeammatesModel> {
             )
           : Container(
               alignment: Alignment.center,
-              child: Text(
+              child: const Text(
                 "Loding",
                 style: TextStyle(fontSize: 50),
               )),
